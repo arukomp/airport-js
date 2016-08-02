@@ -8,11 +8,17 @@ describe ("Airport", function() {
   })
 
   it ("instructs plane to land and confirms it", function() {
-    expect(airport.land_plane(plane)).toEqual(true);
+    expect(airport.landPlane(plane)).toEqual(true);
 
   });
 
+  it("stores the plane in the hangar", function() {
+    airport.landPlane(plane);
+    expect(airport.hangar).toEqual([plane]);
+  });
 
-
+  it("instructs a plane to take off and confirms it", function() {
+    expect(airport.takeOff(plane)).toEqual(true);
+  });
 
 });
