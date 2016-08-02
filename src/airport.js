@@ -1,6 +1,6 @@
-function Airport() {
+function Airport(capacity = 10) {
   this.hangar = [];
-  this.CAPACITY = 10;
+  this.CAPACITY = capacity;
 }
 Airport.prototype.landPlane = function(plane) {
   if (this.isStormy() || this.isFull() ) {

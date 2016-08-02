@@ -7,6 +7,15 @@ describe ("Airport", function() {
     plane = new Plane();
   })
 
+  it ("defaults airport capacity to 10", function() {
+    expect(airport.CAPACITY).toEqual(10);
+  })
+
+  it ("allows to set a default capacity", function() {
+    var airport = new Airport(20);
+    expect(airport.CAPACITY).toEqual(20);
+  })
+
   describe("when not stormy", function() {
 
     beforeEach(function() {
