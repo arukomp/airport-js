@@ -7,6 +7,23 @@ Airport.prototype.landPlane = function(plane) {
   return plane.isLanded;
 }
 Airport.prototype.takeOff = function(plane) {
-  plane.takeOff();
-  return !plane.isLanded;
+  if (this.isStormy()) {
+    return false
+  }
+  else {
+    plane.takeOff();
+    this.hangar.pop(plane);
+    return !plane.isLanded;
+  }
+}
+
+Airport.prototype.isStormy = function() {
+  number = Math.random();
+  if (number < 0.3) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
