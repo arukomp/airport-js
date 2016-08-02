@@ -1,8 +1,9 @@
 function Airport() {
   this.hangar = [];
+  this.CAPACITY = 10;
 }
 Airport.prototype.landPlane = function(plane) {
-  if (this.isStormy()) {
+  if (this.isStormy() || this.isFull() ) {
     return false;
   }
   else {
@@ -30,5 +31,11 @@ Airport.prototype.isStormy = function() {
   else {
     return false;
   }
+}
 
+Airport.prototype.isFull = function() {
+  if (this.hangar.length < this.CAPACITY) {
+      return false;
+  }
+  else {return true;}
 }

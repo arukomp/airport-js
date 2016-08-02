@@ -32,7 +32,12 @@ describe ("Airport", function() {
       airport.takeOff(plane);
       expect(airport.hangar).toEqual([]);
     });
-
+    it ("prevents landing when airport is full", function() {
+      for (var i=0; i<airport.CAPACITY; i++) {
+        airport.landPlane(new Plane());
+      }
+      expect(airport.landPlane(new Plane())).toEqual(false);
+    })
   })
 
   describe("when stormy", function() {
